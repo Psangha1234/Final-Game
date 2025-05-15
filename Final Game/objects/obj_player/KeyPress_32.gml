@@ -12,10 +12,11 @@ if(grounded)
 	/// @DnDArgument : "var" "vel_y"
 	vel_y = -jump_speed;
 
-	/// @DnDAction : YoYo Games.Instances.Set_Sprite
+	/// @DnDAction : YoYo Games.Common.Variable
 	/// @DnDVersion : 1
-	/// @DnDHash : 044EF8C3
+	/// @DnDHash : 3CD0DC3E
 	/// @DnDParent : 38E6C0EB
-	sprite_index = noone;
-	image_index = 0;
+	/// @DnDArgument : "expr" "false"
+	/// @DnDArgument : "var" "grounded"
+	grounded = false;
 }
