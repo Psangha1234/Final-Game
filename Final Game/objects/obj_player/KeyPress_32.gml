@@ -19,4 +19,14 @@ if(grounded)
 	/// @DnDArgument : "expr" "false"
 	/// @DnDArgument : "var" "grounded"
 	grounded = false;
+
+	/// @DnDAction : YoYo Games.Instances.Create_Instance
+	/// @DnDVersion : 1
+	/// @DnDHash : 366C63F2
+	/// @DnDParent : 38E6C0EB
+	/// @DnDArgument : "xpos" "x"
+	/// @DnDArgument : "ypos" "bbox_bottom"
+	/// @DnDArgument : "objectid" "obj_player"
+	/// @DnDSaveInfo : "objectid" "obj_player"
+	instance_create_layer(x, bbox_bottom, "Instances", obj_player);
 }
