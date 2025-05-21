@@ -1,8 +1,11 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_coin",
-  "spriteId": null,
+  "name": "obj_water",
+  "spriteId": {
+    "name": "spr_water",
+    "path": "sprites/spr_water/spr_water.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
