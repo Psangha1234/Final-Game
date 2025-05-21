@@ -1,30 +1,16 @@
 // #################### MOVEMENT VARIABLES ########################
-move_speed = 2.5;   // left/right speed
-jump_speed = -15;   // upward jump speed
-climb_speed = 2.5;  // climbing speed
-gravity_force = 0.5; // gravity strength
-max_fall_speed = 10; // Maximum downward speed
-move_x = 0;          // horizontal movement
-move_y = 0;          // vertrical movement
+move_speed = 2.5;       // Left/Right speed
+jump_speed = -15;       // Upward jump speed (negative goes up)
+climb_speed = 2.5;      // Not used right now
+gravity_force = 0.5;    // Gravity strength
+max_fall_speed = 10;    // Max falling speed
+move_x = 0;             // Horizontal movement
+move_y = 0;             // Vertical movement
 
-// ##################   STATE VARIABLES  ###################
-is_grounded = false;   // on ground?
-is_climbing = false;   // on ladder?
+// ################## STATE VARIABLES ###################
+grounded = false;       // Whether player is on the ground
+is_climbing = false;    // Not used right now
 
-//#################### health bar  ############################
-hp = 100; 
-hp_max = hp;
-flash = 0;  
-
-
-///////##################### double jump ###############
-current_jumps = 0;
-max_jumps = 2;
-
-
-
-
-
-
-
-
+// ##################### DOUBLE JUMP ############################
+current_jumps = 0;      // Tracks how many jumps used
+max_jumps = 2;          // 2 = ground jump + 1 extra in air
