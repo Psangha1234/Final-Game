@@ -23,10 +23,19 @@ if (move_y > max_fall_speed) {
 }
 
 // ########################### MOVEMENT ##########################
-// Handle movement + collisions (assumes custom script)
+// Handle movement + collisions (assuming you have a custom script)
 move_and_collide(move_x, move_y, obj_ground);
 
 // ################### OUTSIDE ROOM CHECK ###################
 if (y < -20 || y > room_height + 20 || x < -20 || x > room_width + 20) {
-    room_restart(); // Restart if player goes out of bounds
+    room_restart();
+}
+
+var water = instance_place(x, y, obj_water);
+if (water != noone) {
+    global.water_score += 1;
+    audio_play_sound(snd_collect, 1, false); // Play sound once, no looping
+    with (water) {
+        instance_destroy();
+    }
 }

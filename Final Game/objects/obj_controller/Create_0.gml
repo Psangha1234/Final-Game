@@ -1,0 +1,1 @@
+global.water_score = 0;
