@@ -27,6 +27,7 @@ if (move_y > max_fall_speed) {
 move_and_collide(move_x, move_y, obj_ground);
 
 // ################### OUTSIDE ROOM CHECK ###################
+// Restart room if player leaves bounds (like falling off the map)
 if (y < -20 || y > room_height + 20 || x < -20 || x > room_width + 20) {
     room_restart();
 }
@@ -39,3 +40,4 @@ if (water != noone) {
         instance_destroy();
     }
 }
+
