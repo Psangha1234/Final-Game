@@ -15,3 +15,6 @@ is_climbing = false;  // Whether player is on a ladder
 current_jumps = 0;  // Tracks how many jumps have been performed
 max_jumps = 2;      // Max double jumps allowed
 
+// Flag to ensure fall sound plays only once per fall
+has_fallen_sound_played = false;
+

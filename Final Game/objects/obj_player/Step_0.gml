@@ -10,6 +10,8 @@ grounded = place_meeting(x, y + 2, obj_ground);
 // ✅ Reset jump counter when touching ground
 if (grounded) {
     current_jumps = 0;
+    // Reset the fall sound flag when on ground, so sound can play again next time player falls
+    has_fallen_sound_played = false;
 }
 
 // ##################### GRAVITY #####################
@@ -27,11 +29,15 @@ if (move_y > max_fall_speed) {
 move_and_collide(move_x, move_y, obj_ground);
 
 // ################### OUTSIDE ROOM CHECK ###################
-// Restart room if player leaves bounds (like falling off the map)
 if (y < -20 || y > room_height + 20 || x < -20 || x > room_width + 20) {
-    room_restart();
+    if (!has_fallen_sound_played) {
+        audio_play_sound(snd_fall, 0, false);  // Replace 'snd_fall' with your fall sound asset name
+        has_fallen_sound_played = true;
+    }
+    room_goto(rm_restart);
 }
 
+// ################### WATER COLLECTION ###################
 var water = instance_place(x, y, obj_water);
 if (water != noone) {
     global.water_score += 1;
