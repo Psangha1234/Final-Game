@@ -7,7 +7,7 @@ move_x *= move_speed;
 // Check if standing on the ground
 grounded = place_meeting(x, y + 2, obj_ground);
 
-// ✅ Reset jump counter when touching ground
+//  Reset jump counter when touching ground
 if (grounded) {
     current_jumps = 0;
     // Reset the fall sound flag when on ground, so sound can play again next time player falls
@@ -40,8 +40,8 @@ if (y < -20 || y > room_height + 20 || x < -20 || x > room_width + 20) {
 // ################### WATER COLLECTION ###################
 var water = instance_place(x, y, obj_water);
 if (water != noone) {
-    has_water = true; // ✅ Track that the player has collected water
-    global.water_score += 1;
+    has_water = true; // Optional
+    global.water_score += 1;  // Increment global water count
     audio_play_sound(snd_collect, 1, false); // Play sound once, no looping
     with (water) {
         instance_destroy();
@@ -52,15 +52,14 @@ if (water != noone) {
 if (place_meeting(x, y, obj_cave)) {
     if (waiting_for_message) {
         // Do nothing this frame, wait for player to move away
-    } else if (has_water) {
+    } else if (global.water_score >= 2) {
         room_goto_next();
-    } else if (can_enter_cave) {
-        show_message("You need to pick up the water before entering the cave!");
-        can_enter_cave = false;
+    } else {
+        show_message("You need to pick up both water objects before entering the cave!");
+        room_restart();  // Restart the room so they must try again
         waiting_for_message = true;
     }
 } else {
     // Player moved away from cave, reset flags
-    can_enter_cave = true;
     waiting_for_message = false;
 }

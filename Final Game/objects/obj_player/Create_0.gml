@@ -21,3 +21,6 @@ has_fallen_sound_played = false;
 has_water = false;
 can_enter_cave = true;
 waiting_for_message = false;
+
+// ############## GLOBAL WATER SCORE INITIALIZATION ################
+global.water_score = 0;  // Start water collection count at zero
